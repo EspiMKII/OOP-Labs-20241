@@ -17,3 +17,18 @@ Input: a1 = 2, b1 = 3, c1 = 4; a2 = 4, b2 = 6, c2 = 8 => inf solutions
 3) quadratic equation: ax^2 + bx + c = 0
 Input: a = 8, b = 4, c = 3 => no solution
 Input: a = 45, b = 50, c = 8 => x1 = -0.194, x2 = -0.917
+
+Ex 6.1:
+Question 1: If the user chooses "cancel", the program outputs: "You've chosen: No"
+Question 2: To modify the options the user has, we can use an overloaded version of showConfirmDialog, which takes more parameters.
+showConfirmDialog can take these parameters, in this order:
+- parentComponent: we don't care about this one (heck i dont even understand what it is lol)
+- message: (String) what message to be displayed in the dialog box
+- title: (String) what the dialog box's title should be. This isn't relevant to our case, but it's good to know regardless.
+- optionType: the options we can let the user choose from. in JOptionPane, the following are possible to be optionType:
+	+ JOptionPane.YES_NO_OPTION
+	+ JOptionPane.YES_NO_CANCEL_OPTION
+	+ JOptionPane.OK_CANCEL_OPTION
+	+ JOptionPane.DEFAULT_OPTION: gives a single "Ok" option to the user
+	these let us customize what options the users have
+
