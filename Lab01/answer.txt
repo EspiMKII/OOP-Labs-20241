@@ -1,3 +1,5 @@
+All printed doubles are formatted to 3 decimals 
+
 Ex 2.2.5:
 Input: a = 5, b = 14.67
 => sum = 19.67, difference = -11.67, product = 73.35, quotient = 0.341
@@ -8,3 +10,10 @@ Input: a = -12.345, b = 7
 Ex 2.2.6:
 1) linear equation: ax + b = 0
 Input: a = 3, b = 2 => x = -0.667
+Input: a = 0, b = 15 => no solution
+2) system of linear equations: a1x + b1y = c1; a2x + b2y = c2
+Input: a1 = 4, b1 = 5, c1 = 8; a2 = 2, b2 = 5, c2 = 7 => x = 0.500, y = 1.200
+Input: a1 = 2, b1 = 3, c1 = 4; a2 = 4, b2 = 6, c2 = 8 => inf solutions
+3) quadratic equation: ax^2 + bx + c = 0
+Input: a = 8, b = 4, c = 3 => no solution
+Input: a = 45, b = 50, c = 8 => x1 = -0.194, x2 = -0.917
