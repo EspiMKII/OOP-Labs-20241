@@ -1,1 +1,10 @@
+Ex 2.2.5:
+Input: a = 5, b = 14.67
+=> sum = 19.67, difference = -11.67, product = 73.35, quotient = 0.341
+Input: a = -12.345, b = 7
+=> sum = -5.345, difference = -19.345, product = 86.415, quotient = 1.764
+(idk how to deal with floating point clownery sorry)
 
+Ex 2.2.6:
+1) linear equation: ax + b = 0
+Input: a = 3, b = 2 => x = -0.667
