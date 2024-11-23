@@ -1,0 +1,66 @@
+All printed doubles are formatted to 3 decimals 
+
+
+Ex 2.2.5:
+1. Input: a = 5, b = 14.67
+=> sum = 19.67, difference = -11.67, product = 73.35, quotient = 0.341
+2. Input: a = -12.345, b = 7
+=> sum = -5.345, difference = -19.345, product = 86.415, quotient = 1.764
+(idk how to deal with floating point clownery sorry)
+
+
+Ex 2.2.6:
+1) linear equation: ax + b = 0
+Input: a = 3, b = 2 => x = -0.667
+Input: a = 0, b = 15 => no solution
+2) system of linear equations: a1x + b1y = c1; a2x + b2y = c2
+Input: a1 = 4, b1 = 5, c1 = 8; a2 = 2, b2 = 5, c2 = 7 => x = 0.500, y = 1.200
+Input: a1 = 2, b1 = 3, c1 = 4; a2 = 4, b2 = 6, c2 = 8 => inf solutions
+3) quadratic equation: ax^2 + bx + c = 0
+Input: a = 8, b = 4, c = 3 => no solution
+Input: a = 45, b = 50, c = 8 => x1 = -0.194, x2 = -0.917
+
+
+Ex 6.1:
+*Question 1: If the user chooses "cancel", the program outputs: "You've chosen: No"
+*Question 2: To modify the options the user has, we can use an overloaded version of showConfirmDialog, which takes more parameters.
+showConfirmDialog can take these parameters, in this order:
+- parentComponent: we don't care about this one (heck i dont even understand what it is lol)
+- message: (String) what message to be displayed in the dialog box
+- title: (String) what the dialog box's title should be. This isn't relevant to our case, but it's good to know regardless.
+- optionType: the options we can let the user choose from. in JOptionPane, the following are possible to be optionType:
+	+ JOptionPane.YES_NO_OPTION
+	+ JOptionPane.YES_NO_CANCEL_OPTION
+	+ JOptionPane.OK_CANCEL_OPTION
+	+ JOptionPane.DEFAULT_OPTION: gives a single "Ok" option to the user
+	these let us customize what options the users have
+
+
+Ex 6.4:
+1. Input: month = "Feb.", year = 2020 => 29 days
+2. Input: month = "Oct", year = 2024 => 31 days
+3. Input: month = "November", year = 2001 => 30 days
+
+
+Ex 6.5:
+1. Input: 1789 2035 1899 1456 2013 =>
+Sorted Array: [1456, 1789, 1899, 2013, 2035]
+Sum: 9192
+Aveage: 1838.4
+2. Input: 55 10 90 88 23 =>
+Sorted array: [10, 23, 55, 88, 90]
+Sum: 266
+Average: 53.200
+
+
+Ex 6.6:
+1. Input:
+Matrix A:
+4 6 7
+9 1 20
+Matrix B:
+4 3 2
+5 1 8
+=> Result:
+8 9 9
+14 2 28
