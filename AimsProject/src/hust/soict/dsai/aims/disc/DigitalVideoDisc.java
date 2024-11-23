@@ -1,4 +1,4 @@
-package AimsProject.src.hust.soict.dsai.aims.disc;
+package hust.soict.dsai.aims.disc;
 
 public class DigitalVideoDisc {
     //Attributes should mostly be private because, again, you don't want to expose the implementation details of a class to other things in your programs!

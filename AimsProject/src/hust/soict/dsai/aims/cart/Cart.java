@@ -1,6 +1,6 @@
-package AimsProject.src.hust.soict.dsai.aims.cart;
+package hust.soict.dsai.aims.cart;
 
-import AimsProject.src.hust.soict.dsai.aims.disc.DigitalVideoDisc; 
+import hust.soict.dsai.aims.disc.DigitalVideoDisc; 
 
 public class Cart {
     // "Constructor" for the cart: it's just an array of DVDs
