@@ -1,14 +1,16 @@
 package hust.soict.dsai.aims.disc;
 
 public class DigitalVideoDisc {
-    //Attributes should mostly be private because, again, you don't want to expose the implementation details of a class to other things in your programs!
+    // Attributes should mostly be private because, again, you don't want to expose the implementation details of a class to other things in your programs!
 	private String title;
 	private String category;
 	private String director;
 	private int length;
 	private float cost;
 	private int id;
+	// the attributes above are instance attributes: they're unique per instance of the class
 	private static int nbDigitalVideoDiscs = 0;
+	// this attribute however is a class attribute: it's shared by all instances of the class
 
 	//constructors
 	public DigitalVideoDisc(String title) {

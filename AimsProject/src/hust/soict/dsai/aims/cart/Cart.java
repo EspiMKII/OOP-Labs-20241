@@ -15,9 +15,9 @@ public class Cart {
 			}
 		}
 	}
-	
-	
 
+
+	
 	public void addDigitalVideoDisc(DigitalVideoDisc newDisc) {
 		/* 
 		- adds a new disc to the "end" of the cart list
