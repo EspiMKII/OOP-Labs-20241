@@ -7,11 +7,15 @@ public class DigitalVideoDisc {
 	private String director;
 	private int length;
 	private float cost;
+	private int id;
+	private static int nbDigitalVideoDiscs = 0;
 
 	//constructors
 	public DigitalVideoDisc(String title) {
 		super();
 		this.title = title;
+		this.id = nbDigitalVideoDiscs;
+		nbDigitalVideoDiscs += 1; 
 	}
     //	public DigitalVideoDisc(String category) {
     //		super();
@@ -27,6 +31,8 @@ public class DigitalVideoDisc {
 		this.title = title;
 		this.category = category;
 		this.cost = cost;
+		this.id = nbDigitalVideoDiscs;
+		nbDigitalVideoDiscs += 1;
 	}
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		super();
@@ -34,6 +40,8 @@ public class DigitalVideoDisc {
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
+		this.id = nbDigitalVideoDiscs;
+		nbDigitalVideoDiscs += 1;
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
@@ -42,6 +50,8 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.length = length;
 		this.cost = cost;
+		this.id = nbDigitalVideoDiscs;
+		nbDigitalVideoDiscs += 1;
 	}
 	
 	//Accessor methods (generally not a good practice in OO systems)
@@ -59,6 +69,9 @@ public class DigitalVideoDisc {
 	}
 	public float getCost() {
 		return cost;
+	}
+	public int getId() {
+		return id;
 	}
 
     //Mutator methods (also generally not a good practice in OO systems)
