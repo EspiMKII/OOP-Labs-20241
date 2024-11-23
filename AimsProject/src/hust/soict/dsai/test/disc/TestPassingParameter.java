@@ -1,6 +1,6 @@
-package AimsProject.src.hust.soict.dsai.test.disc;
+package hust.soict.dsai.test.disc;
 
-import AimsProject.src.hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 
 public class TestPassingParameter {
     public static void main(String[] args) {
