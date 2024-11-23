@@ -5,7 +5,7 @@ public class DigitalVideoDisc {
 	private String title;
 	private String category;
 	private String director;
-	private int length;
+	private int length; // in minutes
 	private float cost;
 	private int id;
 	// the attributes above are instance attributes: they're unique per instance of the class
@@ -81,4 +81,18 @@ public class DigitalVideoDisc {
         this.title = title;
     }
 
+	//Other methods (probably will have to categorize them at some point lol)
+	public String toString() {
+		return "DVD - " + this.title + " - " + this.category + " - " + this.director + " - " + Integer.toString(this.length) + " - " + Float.toString(this.cost) + "$";
+	}
+
+	public boolean isMatch(String title) {
+		return this.title.toLowerCase().contains(title.toLowerCase());
+	}
+
+	public static void main(String[] args) {
+		DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
+		System.out.println(dvd.toString());
+		System.out.println(dvd.isMatch("lion"));
+	}
 }

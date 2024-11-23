@@ -1,56 +1,95 @@
 package hust.soict.dsai.aims.cart;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc; 
+import hust.soict.dsai.aims.disc.DigitalVideoDisc;
+import java.util.*; // yeah no arrays suck + literally every relevant jre ever is gonna have this
+//rewriting everything in this class to use ArrayLists instead of arrays
 
 public class Cart {
-    // "Constructor" for the cart: it's just an array of DVDs
+    // "Constructor" for the cart: it's just an ArrayList of DVDs
 	public static final int MAX_NUMBERS_ORDERED = 20;
-	private DigitalVideoDisc[] itemsOrdered = new DigitalVideoDisc[MAX_NUMBERS_ORDERED];
+	private ArrayList<DigitalVideoDisc> itemsOrdered = new ArrayList<>();
 	
 	public void displayCart() {
 		System.out.println("Your cart has the following items: ");
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i += 1) {
-			if (itemsOrdered[i] != null) {
-				System.out.println("- " + itemsOrdered[i].getTitle());
+		for (DigitalVideoDisc dvd : itemsOrdered) {
+			System.out.println(dvd.getTitle());
+		}
+	}
+
+	public void detailedDisplayCart() {
+		// TasK: display the cart like this:
+		// ***********************CART***********************
+		// Ordered Items:
+		// 1. DVD - [Title] - [category] - [Director] - [Length]: [Price] $
+		// 2. DVD - [Title] - ...
+		// Total cost: [total cost]
+		// ***************************************************
+		// this is why they told us to write the toString() method in DigitalVideoDisc.java, it makes this task a lot easier
+		// question is, should the amount of stars snap to the length of the longest line, or is it fixed?
+		// I'm gonna assume it's fixed cause it makes my life easier lol
+
+		System.out.println("***********************CART***********************");
+		System.out.println("Ordered Items:");
+		for (int i = 0; i < itemsOrdered.size(); i += 1) {
+			System.out.println((i+1) + ". " + itemsOrdered.get(i).toString());
+		}
+		System.out.println("Total cost: " + totalCost() + "$");
+		System.out.println("***************************************************");
+	}
+
+	public void searchByTitle(String searchTitle) {
+		// Task: search for a dvd in the cart by title, and display the results
+		// if no match is found, notify the user
+		// Given search reqs from lab02: "When a customer searches for DVDs by title, he or she provides a string of keywords. 
+		// If any DVD has the title containing any word in the string of keywords, it is counted as a match. 
+		// Note that the comparison of words here is case-insensitive."
+
+		ArrayList<DigitalVideoDisc> searchResults = new ArrayList<>();
+		for (DigitalVideoDisc dvd : itemsOrdered) {
+			if (dvd.isMatch(searchTitle)) {
+				searchResults.add(dvd);
+			}
+		}
+		if (searchResults.isEmpty()) {
+			System.out.println("No results found.");
+		} else {
+			System.out.println("Search results: ");
+			for (DigitalVideoDisc dvd : searchResults) {
+				System.out.println("- " + dvd.getTitle());
 			}
 		}
 	}
 
+	public void searchByID(int searchID) {
+		// ID is kinda a "hidden" attribute, so there is no quick isMatch() method we can pull out
+		// That said, if given an ID, there can either only be one match or no match at all, so we can just compare directly the IDs
+		// of each DVD
 
-	
-	public void addDigitalVideoDisc(DigitalVideoDisc newDisc) {
-		/* 
-		- adds a new disc to the "end" of the cart list
-		- if the cart is full, print out that the disc cannot be added because it's full (duh)
-		
-		breakdown:
-		- the only way we can kind of modify an array is to edit a specific element at an index of that array
-		- we also know how to iterate over an array => it's probably possible to check if a cart is full or not with this
-		
-		- process:
-		+ iterate through the array
-		+ for each iteration, check if the current element is a DVD, or is nothing yet.
-		+ if it is nothing yet, we can modify that element to be the new DVD and terminate the method
-		+ if it is a DVD, move on 
-		+ if the loop successfully iterates through the entire array, we know that the cart is full => print message
-		+ don't forget interaction with customers!
-		*/
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i += 1) {
-			if (itemsOrdered[i] == null) {
-				itemsOrdered[i] = newDisc;
-				System.out.println("The disc \"" + newDisc.getTitle() + "\" has been added successfully to your cart.");
-				if (i == 19) {
-					System.out.println("Your cart is almost full.");
-				} else if (i == 20) {
-					System.out.println("Your cart is full.");
-				}	
-				return;
-			} else if (itemsOrdered[i].getTitle() == newDisc.getTitle()) {
-				System.out.println("The disc \"" + newDisc.getTitle() + "\" is already in your cart.");
+		for (DigitalVideoDisc dvd : itemsOrdered) {
+			if (dvd.getId() == searchID) {
+				System.out.println("Found DVD: " + dvd.getTitle());
 				return;
 			}
 		}
-		System.out.println("Your cart is full; please remove some items if you want to add new ones.");
+		System.out.println("No results found.");
+	}
+	
+	public void addDigitalVideoDisc(DigitalVideoDisc newDisc) {
+		if (itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
+			System.out.println("Your cart is full; please remove some items if you want to add new ones.");
+		} else {
+			if (itemsOrdered.contains(newDisc)) {
+				System.out.println("The disc \"" + newDisc.getTitle() + "\" is already in your cart.");
+			} else {
+				itemsOrdered.add(newDisc);
+				System.out.println("The disc \"" + newDisc.getTitle() + "\" has been added successfully to your cart.");
+				if (itemsOrdered.size() == MAX_NUMBERS_ORDERED-1) {
+					System.out.println("Your cart is almost full.");
+				} else if (itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
+					System.out.println("Your cart is full.");
+				}
+			}
+		}
 	}
 
 	public void addDigitalVideoDisc(DigitalVideoDisc[] dvdList) {
@@ -67,40 +106,26 @@ public class Cart {
 	}
 	// This is also an example of method overloading
 
-
-
 	public void removeDigitalVideoDisc(DigitalVideoDisc targetDisc) {
-		/*
-		- removes a disc from the cart, given the disc identity
-		- if the disc is not in the cart, prints out to the user that it isn't
-		
-		- process:
-		+ by "removing", we can mean changing that disc in the cart to null
-		+ same thing: iterate through the cart
-		+ for each element, check if that is the same as the target disc (for the sake of simplicity, let's just say that their titles are the same)
-		+ if it is, turn that element to null and terminate the method (since there wouldn't be duplicate discs)
-		+ if it is not, continue with the loop
-		+ if the loop successfully iterates through the list, the target disc is not in the cart
-		*/
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i += 1) {
-			if (itemsOrdered[i].getTitle() == targetDisc.getTitle()) {
-				itemsOrdered[i] = null;
-				System.out.println("The disc \""+ targetDisc.getTitle() + "\" has been successfully removed from your cart.");
-				return;
-			}
+		/* we're using remove(int index) cuz it also shifts the elements after the removed one to the left */
+		if (itemsOrdered.contains(targetDisc) == false) {
+			System.out.println("The disc\"" + targetDisc.getTitle() + "\" does not exist in your cart.");
+		} else {
+			int temp = itemsOrdered.indexOf(targetDisc);
+			itemsOrdered.remove(temp);
+			System.out.println("The disc \"" + targetDisc.getTitle() + "\" has been removed successfully from your cart.");
 		}
-		System.out.println("The disc\"" + targetDisc.getTitle() + "\" does not exist in your cart.");
-		
 	}
 
 	public float totalCost() {
 		float totalCost = 0;
-		for (int i = 0; i < MAX_NUMBERS_ORDERED; i += 1) {
-			if (itemsOrdered[i] != null) {
-				totalCost += itemsOrdered[i].getCost();
-			}
+		for (DigitalVideoDisc dvd : itemsOrdered) {
+			totalCost += dvd.getCost();
 		}
 		return totalCost;
 	}
 
+	public static void main(String[] args) {
+		
+	}
 }
