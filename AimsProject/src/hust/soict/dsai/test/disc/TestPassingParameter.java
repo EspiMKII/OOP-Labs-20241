@@ -42,7 +42,7 @@ public class TestPassingParameter {
     // because in the 2nd line of this method, when we called dvd.setTitle(title), we changed the title of the dvd object
     // "dvd" in this method is merely a reference
     // so in the 3rd line, all we are doing is just pointing dvd to a new object, not changing the title of the original object, which got its named changed in the line before
-    // => Java is still a pass-by-value language, it just also passes the reference of the object
+    // => Java is still a pass-by-value language, it just also passes a copy of the reference of the object
 
 
     // Task: write a swap method that correctly swaps the 2 objects
