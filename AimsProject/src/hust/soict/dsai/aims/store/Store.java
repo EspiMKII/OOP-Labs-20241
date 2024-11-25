@@ -7,9 +7,14 @@ public class Store {
     private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<>();
 
     public void addDVD(DigitalVideoDisc dvd) {
-        itemsInStore.add(dvd);
-        System.out.println("Added DVD \"" + dvd.getTitle() + "\" to the store.");
+        if (itemsInStore.contains(dvd) == true){
+            System.out.println("DVD \"" + dvd.getTitle() + "\" is already in the store.");
+        } else {
+            itemsInStore.add(dvd);
+            System.out.println("Added DVD \"" + dvd.getTitle() + "\" to the store.");
+        }
     }
+
     public void addDVD(DigitalVideoDisc[] dvdList) {
         for (DigitalVideoDisc dvd : dvdList) {
             itemsInStore.add(dvd);
@@ -17,8 +22,12 @@ public class Store {
     }
 
     public void removeDVD(DigitalVideoDisc dvd) {
-        itemsInStore.remove(dvd);
-        System.out.println("Removed DVD \"" + dvd.getTitle() + "\" from the store.");
+        if (itemsInStore.contains(dvd) == false) {
+            System.out.println("DVD \"" + dvd.getTitle() + "\" is not in the store.");
+        } else {
+            itemsInStore.remove(dvd);
+            System.out.println("Removed DVD \"" + dvd.getTitle() + "\" from the store.");
+        } 
     }
     public void removeDVD(DigitalVideoDisc[] dvdList) {
         for (DigitalVideoDisc dvd : dvdList) {

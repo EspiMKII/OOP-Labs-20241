@@ -27,5 +27,9 @@ public class StoreTest {
 
         testingStore.listDVDs();
         System.out.println();
+
+        testingStore.removeDVD(dvd11);
+        testingStore.listDVDs(); 
+        System.out.println();
 }
 }
