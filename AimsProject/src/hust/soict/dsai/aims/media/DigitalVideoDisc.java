@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Disc {
+public class DigitalVideoDisc extends Disc implements Playable {
 	//constructors
 	public DigitalVideoDisc(String title) {
 		this.setTitle(title);
@@ -34,9 +34,16 @@ public class DigitalVideoDisc extends Disc {
 		return this.getTitle().toLowerCase().contains(title.toLowerCase());
 	}
 
+	@Override
+    public void play() {
+        System.out.println("Now playing: " + this.getTitle());
+        System.out.println("Length: " + this.getLength());
+    }
+
 	public static void main(String[] args) {
 		DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
 		System.out.println(dvd.toString());
 		System.out.println(dvd.isMatch("lion"));
+		dvd.play();
 	}
 }
