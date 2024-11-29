@@ -1,8 +1,9 @@
 package hust.soict.dsai.aims.cart;
 
-import hust.soict.dsai.aims.disc.DigitalVideoDisc;
 import java.util.*; // yeah no arrays suck + literally every relevant jre ever is gonna have this
 //rewriting everything in this class to use ArrayLists instead of arrays
+
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
 
 public class Cart {
     // "Constructor" for the cart: it's just an ArrayList of DVDs
