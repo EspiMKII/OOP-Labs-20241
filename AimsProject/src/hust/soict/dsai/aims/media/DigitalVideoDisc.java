@@ -1,9 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Media {
-	private String director;
-	private int length; // in minutes
-
+public class DigitalVideoDisc extends Disc {
 	//constructors
 	public DigitalVideoDisc(String title) {
 		this.setTitle(title);
@@ -16,21 +13,21 @@ public class DigitalVideoDisc extends Media {
 	public DigitalVideoDisc(String title, String category, String director, float cost) {
 		this.setTitle(title);
 		this.setCategory(category);
-		this.director = director;
+		this.setDirector(director);
 		this.setCost(cost);
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, float cost) {
 		super();
 		this.setTitle(title);
 		this.setCategory(category);
-		this.director = director;
-		this.length = length;
+		this.setDirector(director);
+		this.setLength(length);
 		this.setCost(cost);
 	}
 
 	//Other methods (probably will have to categorize them at some point lol)
 	public String toString() {
-		return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.director + " - " + Integer.toString(this.length) + " - " + Float.toString(this.getCost()) + "$";
+		return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + Integer.toString(this.getLength()) + " - " + Float.toString(this.getCost()) + "$";
 	}
 
 	public boolean isMatch(String title) {

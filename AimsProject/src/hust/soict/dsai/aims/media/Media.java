@@ -6,6 +6,7 @@ public abstract class Media {
     private float cost;
     private int id;
     
+    //empty constructor because lol
     public Media() {
     }
 
