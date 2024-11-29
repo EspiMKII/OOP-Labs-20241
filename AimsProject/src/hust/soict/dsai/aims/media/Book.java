@@ -1,42 +1,11 @@
 package hust.soict.dsai.aims.media;
 import java.util.ArrayList;
 
-public class Book {
-    private String title;
-    private String category;
-    private float cost;
+public class Book extends Media {
     private ArrayList<String> authors = new ArrayList<String>();
-    private int id;
     
     public Book() {
-    }
-
-    //getters
-    public String getTitle() {
-        return title;
-    }
-    public String getCategory() {
-        return category;
-    }
-    public float getCost() {
-        return cost;
-    }
-    public ArrayList<String> getAuthors() {
-        return authors;
-    }
-    public int getId() {
-        return id;
-    }
-
-    //setters
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public void setCategory(String category) {
-        this.category = category;
-    }
-    public void setCost(float cost) {
-        this.cost = cost;
+        super();
     }
 
     public void addAuthor(String authorName) {
@@ -48,7 +17,7 @@ public class Book {
     }
 
     public String toString() {
-        return "Book - " + this.title + " - " + this.category + " - " + this.authors + " - " + this.cost + "$";
+        return "Book - " + this.getTitle() + " - " + this.getCategory() + " - " + this.authors + " - " + this.getCost() + "$";
     }
     
     public static void main(String[] args) {
