@@ -10,6 +10,12 @@ public abstract class Media {
     public Media() {
     }
 
+    public Media(String title, String category, float cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+
     //getters
     public void setTitle(String title) {
         this.title = title;
@@ -45,5 +51,11 @@ public abstract class Media {
     public void setId(int id) {
         this.id = id;
     }
+
+    //other methods
+    
+    public boolean isMatch(String keyword) {
+		return this.getTitle().toLowerCase().contains(keyword.toLowerCase());
+	}
     
 }

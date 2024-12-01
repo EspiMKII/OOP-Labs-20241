@@ -1,6 +1,4 @@
 {
-    "java.project.sourcePaths": [
-        "d:\\JDKs - JREs\\graalvm-jdk-21.0.5+9.1\\lib\\src"
-    ],
+    "java.project.sourcePaths": [],
     "java.project.referencedLibraries": []
 }

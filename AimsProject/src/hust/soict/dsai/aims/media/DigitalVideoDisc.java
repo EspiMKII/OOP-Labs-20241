@@ -30,10 +30,6 @@ public class DigitalVideoDisc extends Disc implements Playable {
 		return "DVD - " + this.getTitle() + " - " + this.getCategory() + " - " + this.getDirector() + " - " + Integer.toString(this.getLength()) + " - " + Float.toString(this.getCost()) + "$";
 	}
 
-	public boolean isMatch(String title) {
-		return this.getTitle().toLowerCase().contains(title.toLowerCase());
-	}
-
 	@Override
     public void play() {
         System.out.println("Now playing: " + this.getTitle());
@@ -43,7 +39,11 @@ public class DigitalVideoDisc extends Disc implements Playable {
 	public static void main(String[] args) {
 		DigitalVideoDisc dvd = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.95f);
 		System.out.println(dvd.toString());
+		System.out.println();
+		
 		System.out.println(dvd.isMatch("lion"));
+		System.out.println();
+		
 		dvd.play();
 	}
 }
