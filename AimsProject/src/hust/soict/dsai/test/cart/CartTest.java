@@ -29,6 +29,8 @@ public class CartTest {
 		
 		DigitalVideoDisc dvd5 = new DigitalVideoDisc("The Incredibles", "Animation", "Brad Bird", 115, 19.99f);
 		
+		//i dont know why the terminal would still display question mark characters when trying to display vietnamese characters even though
+		//the charset encoding is utf-16, oh well 
 		ArrayList<Track> tracks = new ArrayList<Track>(Arrays.asList(new Track("Y6U", 233), 
 																	new Track("Líu La Líu Lo", 196),
 																	new Track("Side Effects", 274),
