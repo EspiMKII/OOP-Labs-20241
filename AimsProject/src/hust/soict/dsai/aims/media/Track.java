@@ -1,7 +1,7 @@
 package hust.soict.dsai.aims.media;
 
 //basically only for use in CompactDisc.java
-public class Track {
+public class Track implements Playable {
     private String title;
     private int length; //in minutes
     
@@ -23,6 +23,12 @@ public class Track {
     }
     public void setLength(int length) {
         this.length = length;
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Now playing: " + this.getTitle());
+        System.out.println("Length: " + this.getLength());
     }
     
 }

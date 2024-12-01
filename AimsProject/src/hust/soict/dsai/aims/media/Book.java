@@ -3,9 +3,15 @@ import java.util.ArrayList;
 
 public class Book extends Media {
     private ArrayList<String> authors = new ArrayList<String>();
+    //assumption: authors.get(0) is the lead author
     
     public Book() {
         super();
+    }
+
+    public Book(String title, String category, float cost, ArrayList<String> authors) {
+        super(title, category, cost);
+        this.authors = authors;
     }
 
     public void addAuthor(String authorName) {
@@ -17,7 +23,7 @@ public class Book extends Media {
     }
 
     public String toString() {
-        return "Book - " + this.getTitle() + " - " + this.getCategory() + " - " + this.authors + " - " + this.getCost() + "$";
+        return "Book - " + this.getTitle() + " - " + this.getCategory() + " - " + this.authors.get(0) + " - " + this.getCost() + "$";
     }
     
     public static void main(String[] args) {
