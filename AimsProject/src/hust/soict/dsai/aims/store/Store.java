@@ -2,48 +2,46 @@ package hust.soict.dsai.aims.store;
 
 import java.util.ArrayList;
 import hust.soict.dsai.aims.media.DigitalVideoDisc;
+import hust.soict.dsai.aims.media.Media;
 
 public class Store {
-    private ArrayList<DigitalVideoDisc> itemsInStore = new ArrayList<>();
+    private ArrayList<Media> itemsInStore = new ArrayList<>();
 
-    public void addDVD(DigitalVideoDisc dvd) {
-        if (itemsInStore.contains(dvd) == true){
-            System.out.println("DVD \"" + dvd.getTitle() + "\" is already in the store.");
+    public void addMedia(Media media) {
+        if (itemsInStore.contains(media)) {
+            System.out.println("Item " + media.getTitle() + " is already in the store.");
         } else {
-            itemsInStore.add(dvd);
-            System.out.println("Added DVD \"" + dvd.getTitle() + "\" to the store.");
+            itemsInStore.add(media);
+            System.out.println("Added item " + media.getTitle() + " to the store.");
+        }
+    }
+    public void addMedia(Media[] mediaList) {
+        for (Media media : mediaList) {
+            this.addMedia(media);
         }
     }
 
-    public void addDVD(DigitalVideoDisc[] dvdList) {
-        for (DigitalVideoDisc dvd : dvdList) {
-            itemsInStore.add(dvd);
-        }
-    }
-
-    public void removeDVD(DigitalVideoDisc dvd) {
-        if (itemsInStore.contains(dvd) == false) {
-            System.out.println("DVD \"" + dvd.getTitle() + "\" is not in the store.");
+    public void removeMedia(Media media) {
+        if (!itemsInStore.contains(media)) {
+            System.out.println("Item " + media.getTitle() + " is not in the store.");
         } else {
-            itemsInStore.remove(dvd);
-            System.out.println("Removed DVD \"" + dvd.getTitle() + "\" from the store.");
-        } 
+            itemsInStore.remove(media);
+            System.out.println("Removed item " + media.getTitle() + " from the store.");
+        }
     }
-    public void removeDVD(DigitalVideoDisc[] dvdList) {
-        for (DigitalVideoDisc dvd : dvdList) {
-            itemsInStore.remove(dvd);
+    public void removeMedia(Media[] mediaList) {
+        for (Media media : mediaList) {
+            this.removeMedia(media);
         }
     }
 
-    public void listDVDs() {
+    public void listMedia() {
         System.out.println("*************************STORE*************************");
-        System.out.println("Available Discs:");
-        for (DigitalVideoDisc dvd : itemsInStore) {
-           System.out.println("- " + dvd.toString());
+        System.out.println("Available Items:");
+        for (Media media : itemsInStore) {
+           System.out.println("- " + media.toString());
         }
         System.out.println("*******************************************************");
     }
-
-    // honestly if im using arraylists then what's even the point of these methods above lol
 }
 
