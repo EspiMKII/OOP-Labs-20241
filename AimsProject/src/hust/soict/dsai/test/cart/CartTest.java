@@ -13,7 +13,7 @@ import hust.soict.dsai.aims.media.Track;
 
 public class CartTest {
     public static void main(String[] args) {
-
+		Scanner scanner = new Scanner(System.in);
         Cart testingCart = new Cart();
 		
 		ArrayList<String> authors = new ArrayList<String>(Arrays.asList("Reki Kawahara"));
@@ -50,18 +50,26 @@ public class CartTest {
 		testingCart.addMedia(mediaList);
 		System.out.println();
 
+		// testingCart.detailedDisplayCart();
+		// System.out.println();
+
+		// System.out.println("Enter a title to search for: ");
+		// String searchTitle = scanner.nextLine();
+		// testingCart.searchByTitle(searchTitle);
+		// System.out.println();
+
+		// testingCart.removeMedia(dvd5);
+		// testingCart.detailedDisplayCart();
+		// System.out.println();
+
+		testingCart.sortCartbyCost();
 		testingCart.detailedDisplayCart();
 		System.out.println();
 
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter a title to search for: ");
-		String searchTitle = scanner.nextLine();
-		testingCart.searchByTitle(searchTitle);
-		System.out.println();
-
-		testingCart.removeMedia(dvd5);
+		testingCart.sortCartbyTitle();
 		testingCart.detailedDisplayCart();
-
+		System.out.println();
+		
 		scanner.close();
     }
 
