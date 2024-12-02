@@ -1,6 +1,7 @@
 package hust.soict.dsai.aims.cart;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import hust.soict.dsai.aims.media.Media;
 
@@ -81,7 +82,7 @@ public class Cart {
 		}
 		System.out.println("No results found.");
 	}
-	
+
 	//misc methods
 	public float totalCost() {
 		float totalCost = 0;
@@ -89,5 +90,15 @@ public class Cart {
 			totalCost += media.getCost();
 		}
 		return totalCost;
+	}
+
+	public void sortCartbyTitle() {
+		itemsOrdered.sort(Media.COMPARE_BY_TITLE_COST);
+		System.out.println("Cart sorted by title.");
+	}
+
+	public void sortCartbyCost() {
+		itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
+		System.out.println("Cart sorted by cost.");
 	}
 }
