@@ -3,6 +3,7 @@ package hust.soict.dsai.aims.store;
 import java.util.ArrayList;
 
 import hust.soict.dsai.aims.media.Media;
+import hust.soict.dsai.aims.media.MediaComparator;
 
 public class Store {
     private ArrayList<Media> itemsInStore = new ArrayList<>();
@@ -62,12 +63,8 @@ public class Store {
         return null;
     }
 
-    private void sortStoreByTitle() {
-        itemsInStore.sort(Media.COMPARE_BY_TITLE_COST);
-    }
-
     public void IDAssignment() { //we're just gonna assign IDs based on the order and number of the items in the store
-        sortStoreByTitle(); //completely arbitrary btw
+        itemsInStore.sort(new MediaComparator.MediaComparatorByTitleCost());
         for (int i = 0; i < itemsInStore.size(); i++) {
             itemsInStore.get(i).setId(i+1);
         }
