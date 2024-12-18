@@ -43,5 +43,33 @@ public class Store {
         }
         System.out.println("*******************************************************");
     }
-}
 
+    public void listMediaSimple() {
+        System.out.println("*************************STORE*************************");
+        System.out.println("Available Items:");
+        for (Media media : itemsInStore) {
+            System.out.println("- " + media.getClass().getSimpleName() + ": " + media.getTitle());
+        }
+        System.out.println("*******************************************************");
+    }
+
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equals(title)) {
+                return media;
+            }
+        }
+        return null;
+    }
+
+    private void sortStoreByTitle() {
+        itemsInStore.sort(Media.COMPARE_BY_TITLE_COST);
+    }
+
+    public void IDAssignment() { //we're just gonna assign IDs based on the order and number of the items in the store
+        sortStoreByTitle(); //completely arbitrary btw
+        for (int i = 0; i < itemsInStore.size(); i++) {
+            itemsInStore.get(i).setId(i+1);
+        }
+    }
+}
