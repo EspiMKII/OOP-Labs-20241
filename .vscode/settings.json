@@ -1,8 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "GUIProject\\src",
-        "OtherProjects\\src",
-	"AimsProject\\src"
+        "AimsProject\\src"
     ],
     "java.project.referencedLibraries": [],
     "java.configuration.runtimes": [
@@ -12,4 +10,5 @@
             "default": true
         }
     ],
+    "java.project.outputPath": "AimsProject\\bin",
 }
