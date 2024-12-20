@@ -1,0 +1,14 @@
+{
+    "java.project.sourcePaths": [
+        "GUIProject\\src",
+        "OtherProjects\\src"
+    ],
+    "java.project.referencedLibraries": [],
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.8",
+            "path": "D:\\JDKs - JREs\\openlogic-openjdk-8u422-b05-windows-x64",
+            "default": true
+        }
+    ],
+}
