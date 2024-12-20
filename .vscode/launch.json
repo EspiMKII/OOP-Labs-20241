@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AimsScreen",
+            "request": "launch",
+            "mainClass": "hust.soict.dsai.aims.screen.AimsScreen",
+            "projectName": "OOP-Labs-20241_7407c180"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
