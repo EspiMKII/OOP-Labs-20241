@@ -1,2 +1,3 @@
-- The Aims class must be updated to handle any exceptions generated when the play() methods are called. What happens when you don’t update for them to catch?
-If we don't update them to catch, then when try to use Aims, it will throw error "The method play() from the type Playable refers to the missing type PlayerException".
+version https://git-lfs.github.com/spec/v1
+oid sha256:2711689fc6237304e95fddeeee7695890c85dbf147aef016d5afb8db94e60a94
+size 328
